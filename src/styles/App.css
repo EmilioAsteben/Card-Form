@@ -34,17 +34,153 @@
   background-color: #1f2229;
 }
 
+.info_block  {
+  font-family: Arial;
+  font-size: 16px;
+  color: #8494ab;
+  margin-bottom: 30px;
+  
+
+  
+}
+
+.info_block p {
+  margin: 0;
+}
+
+.info_block p:first-child {
+  margin-bottom: 15px;
+
+}
+
+.info_block p:nth-child(2) {
+  margin-bottom: 5px;
+}
+
+.info_block_value {
+  font-family: Arial;
+  font-size: 16px;
+  position: absolute;
+  top:80px;
+  left:190px;
+  margin:0;
+  margin-bottom: 30px;
+
+}
+
+.info_block_value p {
+  margin-bottom: 5px;
+  margin-top: 0px;
+  font-family: Arial
+}
+
+
 .entry_block {
   position: absolute;
   left: 445px;
   top: 80px;
-  width:565px;
+  width:570px;
   height: 470px;
-  padding-left: 30px;
+  padding-left: 25px;
   padding-right: 45px;
-  padding-top:50px;
+  padding-top:45px;
   padding-bottom: 50px;
   background-color: #f7f8f8;
+}
+
+h3 {
+  font-family: "Open Sans Bold";
+  font-size: 21.98px;
+  color: #383d43;
+  margin-bottom: 25px;
+}
+
+.card_form {
+  z-index: 3;
+  position: absolute;
+  width: 310px;
+  height: 205px;
+  border: 2px solid rgba(238, 238, 238, 1);
+  border-radius: 12px;
+  padding: 25px 20px 10px 15px;
+  margin:0;
+  background-color: #f7f8f8;
+
+}
+
+.card_form p {
+  font-family: Arial;
+  font-size: 16px;
+  color: #8494ab;
+  margin:0;
+  margin-bottom: 8px;
+}
+
+.card_number_input_block  {
+  margin-bottom: 15px;
+}
+.card_number_input_block input[type="text"] {
+  width: 65px;
+  height: 40px;
+  text-align: center;
+  margin:0;
+  margin-right: 10px;
+}
+
+.card_number_input_block input[type="text"]:last-child {
+  margin:0;
+}
+
+.card_form_back{
+  z-index: 2;
+  position: absolute;
+  top:225px;
+  left:225px;
+  width: 270px;
+  height: 120px;
+  padding: 25px 0 85px 100px;
+  border: 2px solid rgba(238, 238, 238, 1);
+  border-radius: 10px;
+  background-color: #f7f8f8;
+
+}
+
+.card_form_back p {
+  float: right;
+  margin: 0;
+  margin-right: 15px;
+  font-family: Arial;
+  font-size: 16px;
+  color: #8494ab;
+  }
+
+  .cvv {
+    width: 135px;
+    height: 40px;
+    text-align: center; 
+    float: right;
+    margin:0;
+    margin-right: 15px;
+  }
+
+  .info {
+    position: absolute;
+    top:110px;
+    left:320px;
+    cursor: pointer;
+
+    width: 26px;
+    height: 26px;
+    background-image: url('../images/info1.png');
+  }
+
+.grey_stripe {
+  width: 265px;
+  height: 40px;
+  background-color: #e4e9ee;
+  margin: 0;
+  margin-bottom: 15px;
+  float: right;
 }
 
 .footer{;
@@ -67,6 +203,15 @@
 font-family: "Open Sans"; 
 
 src: url("../fonts/2211.ttf") format("truetype"); 
+font-style: normal; 
+font-weight: normal; 
+} 
+
+@font-face {
+
+font-family: "Open Sans Bold"; 
+
+src: url("../fonts/2204.ttf") format("truetype"); 
 font-style: normal; 
 font-weight: normal; 
 } 
