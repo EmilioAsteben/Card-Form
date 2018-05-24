@@ -102,9 +102,11 @@ h3 {
   height: 205px;
   border: 2px solid rgba(238, 238, 238, 1);
   border-radius: 12px;
-  padding: 25px 20px 10px 15px;
+  padding: 20px 20px 8px 15px;
   margin:0;
+  margin-bottom: 40px;
   background-color: #f7f8f8;
+
 
 }
 
@@ -121,14 +123,106 @@ h3 {
 }
 .card_number_input_block input[type="text"] {
   width: 65px;
-  height: 40px;
+  height: 35px;
   text-align: center;
   margin:0;
   margin-right: 10px;
+  font-size: 16px;
 }
 
 .card_number_input_block input[type="text"]:last-child {
   margin:0;
+}
+
+/* .date_list ul{
+  padding: 0;
+  height: 155px;
+  overflow: auto;
+  width: 90px;
+  margin:0;
+
+}
+
+.date_list ul::-webkit-scrollbar {
+ width: 0px; }
+
+ .date_list ul li:first-child{
+  padding: 15px 35px 15px 15px;
+}
+
+
+.date_list ul li{
+  position: relative;
+  list-style: none;
+  width: 20px;
+  height: 15px;
+  padding: 15px 35px 15px 15px;
+  margin-right: 0;
+  background-color: #ffffff;
+  border: 1px solid grey;
+
+} */
+
+.select_month {
+width: 70px;
+  height: 40px;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  appearance: none;
+  background: url('../images/arrow.png')  no-repeat #FFF;
+  background-position: 85% 50%;
+  margin-bottom:10px;
+  cursor: pointer;
+}
+
+.select_month:hover {
+  background: url('../images/arrow_focused.png')  no-repeat #FFF;
+  background-position: 85% 50%;
+}
+
+.select_year:hover {
+  background: url('../images/arrow_focused.png')  no-repeat #FFF;
+  background-position: 85% 50%;
+}
+
+
+
+  .select_year {
+width: 85px;
+  height: 40px;
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 16px;
+  appearance: none;
+  background: url('../images/arrow.png')  no-repeat #FFF;
+  background-position: 85% 50%;
+  cursor: pointer;
+
+  
+
+}
+
+.card_holder {
+  width: 285px;
+  height: 15px;
+  padding: 10px 0px 10px 10px;
+  font-size: 16px;
+}
+
+.card_holder::placeholder {
+  font-family: Arial;
+  font-size: 16px;
+}
+
+button[type="submit"]{
+   border: none;
+  background: transparent;
+  position: absolute;
+  top:565px;
+  left: 480px;
+  cursor: pointer;
+ 
 }
 
 .card_form_back{
@@ -158,6 +252,7 @@ h3 {
     width: 135px;
     height: 40px;
     text-align: center; 
+    font-size: 16px;
     float: right;
     margin:0;
     margin-right: 15px;
@@ -171,7 +266,11 @@ h3 {
 
     width: 26px;
     height: 26px;
-    background-image: url('../images/info1.png');
+    background-image: url('../images/info.png');
+  }
+
+  .info:hover {
+    background-image: url('../images/info_hover.png');
   }
 
 .grey_stripe {
@@ -184,13 +283,27 @@ h3 {
 }
 
 .footer{;
-  position: relative;
-  width: 640px;
-  height: 270px;
-  top:650px;
+  position: absolute;
+  width: 575px;
+  height: 220px;
+  top:645px;
   left: 445px;
   background-color: #373c43;
+  padding: 20px 35px 34px 30px;
   margin: 0px;
+  margin-bottom: 75px;
+
+}
+
+.footer p {
+font-family: Arial;
+font-size: 12px;
+color: #89909d;
+text-align: left;
+line-height: 20px;
+margin:0;
+margin-bottom: 10px;
+
 }
 
 
