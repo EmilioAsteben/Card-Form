@@ -1,4 +1,9 @@
+.menuBar {
+  display: none;
+}
+
 .menu ul {
+  display: block;
   position: absolute;
   width: 320px;
   margin-left: 125px;
@@ -41,6 +46,11 @@
 
 .menu li:nth-child(3) {
   background-color: #1f2229;
+}
+
+    .menu li:nth-child(2){
+  background-color: #2a2d37;
+  color: #808592;
 }
 
 .info_block  {
@@ -95,6 +105,7 @@
   padding-top:45px;
   padding-bottom: 50px;
   background-color: #f7f8f8;
+
 }
 
 h3 {
@@ -148,6 +159,8 @@ h3 {
   margin:0;
   margin-right: 10px;
   font-size: 16px;
+  padding-top: 1px;
+  border:1px solid #e5eaef;
 }
 
 .card_number_input_block_not_valid input[type="text"] {
@@ -157,6 +170,7 @@ h3 {
   margin:0;
   margin-right: 10px;
   font-size: 16px;
+  padding-top: 1px;
   outline: none;
   margin-bottom: 15px;
    box-shadow: 0px 0px 6px 2px rgba(255,0,0,1);
@@ -203,8 +217,8 @@ h3 {
 
 .select_month {
 width: 70px;
-  height: 40px;
-  padding: 10px;
+  height: 41px;
+  padding: 1px 10px 1px 10px;
   margin-right: 10px;
   font-size: 16px;
   appearance: none;
@@ -212,6 +226,7 @@ width: 70px;
   background-position: 85% 50%;
   margin-bottom:10px;
   cursor: pointer;
+  border:1px solid #e5eaef;
 }
 
 .select_month:hover {
@@ -229,13 +244,14 @@ width: 70px;
   .select_year {
 width: 85px;
   height: 40px;
-  padding: 10px;
+  padding: 1px 10px 1px 10px;
   margin-right: 10px;
   font-size: 16px;
   appearance: none;
   background: url('../images/arrow.png')  no-repeat #FFF;
   background-position: 85% 50%;
   cursor: pointer;
+  border:1px solid #e5eaef;
 
   
 
@@ -246,6 +262,7 @@ width: 85px;
   height: 15px;
   padding: 10px 0px 10px 10px;
   font-size: 16px;
+  border:1px solid #e5eaef;
 }
 
 .card_holder_not_valid  {
@@ -318,6 +335,7 @@ button[type="submit"]:focus{
     float: right;
     margin:0;
     margin-right: 15px;
+    border:1px solid #e5eaef;
   }
 
   .cvv_not_valid {
@@ -369,7 +387,7 @@ button[type="submit"]:focus{
   float: right;
 }
 
-.footer{;
+.footer{
   position: absolute;
   width: 575px;
   height: 220px;
@@ -393,7 +411,140 @@ margin-bottom: 10px;
 
 }
 
+.footer p:last-child {
+  display: none;
+}
 
+@media only screen and (max-width: 768px){
+      .menu ul {
+      list-style: none;
+    padding: 1px;
+    position: absolute;
+    height: 61px;
+    width: 750px;
+    left: 102px;
+    top:5px;
+    margin: 0;
+    margin-right: 0px;
+  }
+
+    .menu li {
+      display: inline-flex;
+    float: left;
+    padding: 25px 16px;
+    color: #E6DEDA;
+    font-family: Arial;
+    font-size: 16px;
+    cursor: pointer;
+    top: 35px;
+    list-style: none;
+    }
+
+    .menu li:first-child{
+  padding-top: 25px;
+}
+
+
+
+.menu li:last-child{
+  padding-bottom: 25px;
+  color: #808592;
+  border-top:1px solid rgba(136, 136, 153, 0.1);
+}
+
+    .entry_block {
+    
+    left: 105px;
+  
+}
+
+.footer{
+ 
+  left: 105px;
+
+
+}
+
+
+}
+
+@media only screen and (max-width: 480px){
+ 
+.footer{
+  height: 15px;
+}
+ .footer p{
+  display: none;
+ }
+
+ .footer p:last-child {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  text-decoration: underline;
+
+  }
+}
+
+@media only screen and (max-width: 320px){
+ .wrapper {
+
+width: auto;
+height: auto;
+ }
+
+  .menu ul {
+    display: none;
+  }
+.entry_block {
+    
+    left: 7px;
+    width: 530px;
+    padding: 45px 15px 50px 10px;
+    margin: 0 10px 0 0;
+
+  }
+
+    .footer{
+  left:7px;
+  width: 490px;
+  margin: 0 10px 0 0;
+
+}
+
+
+.card_form_back{
+left:158px;
+
+}
+
+button[type="submit"]{
+   
+  top:565px;
+  left: 58px;
+  
+
+
+  
+}
+.menuBar{
+  display: block;
+  padding: 1px;
+  position: absolute;
+  margin: 0 10px 0 0;
+  height: 50px;
+  width: 555px;
+  left: 7px;
+  top:25px;
+  background-color: #515761;
+}
+
+.menuBar:after {
+    content: url('http://www.fsiv.com/publics/images/menu-icon.png');
+}
+
+
+  }
 
 
 
