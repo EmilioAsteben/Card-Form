@@ -6,18 +6,285 @@ import btn from '../images/button.png';
 
 class Page extends Component {
 
+
+
+    state = {
+    	name: '',
+    	card_number_1:'',
+    	card_number_2:'',
+    	card_number_3:'',
+    	card_number_4:'',
+      cvv:'',
+      name_focus: false,
+      card_number_1_focus: false,
+      card_number_2_focus: false,
+      card_number_3_focus: false,
+      card_number_4_focus: false,
+      cvv_focus: false,
+    	cardHolderClassname: "card_holder",
+      card_number_input_block: "card_number_input_block",
+      cvv_className: "cvv",
+
+    	holderError: "",
+      cardNumberError: "",
+      cvvError: ""
+
+    }
+
+    cardHolderFocused = () => {
+      this.setState({name_focus: true})
+      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+
+      this.setState({card_number_1_focus: false})
+      this.setState({card_number_2_focus: false})
+      this.setState({card_number_3_focus: false})
+      this.setState({card_number_4_focus: false})
+      this.setState({cvv_focus: false})
+
+    }
+
+    cardNumber_1_focused = () => {
+      this.setState({card_number_1_focus: true})
+      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+
+      this.setState({card_number_2_focus: false})
+      this.setState({card_number_3_focus: false})
+      this.setState({card_number_4_focus: false})
+      this.setState({name_focus: false})
+      this.setState({cvv_focus: false})
+
+    }
+
+     cardNumber_2_focused = () => {
+      this.setState({card_number_2_focus: true})
+      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+
+      this.setState({card_number_1_focus: false})
+      this.setState({card_number_3_focus: false})
+      this.setState({card_number_4_focus: false})
+      this.setState({name_focus: false})
+      this.setState({cvv_focus: false})
+
+    }
+
+     cardNumber_3_focused = () => {
+      this.setState({card_number_3_focus: true})
+      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+
+      this.setState({card_number_2_focus: false})
+      this.setState({card_number_1_focus: false})
+      this.setState({card_number_4_focus: false})
+      this.setState({name_focus: false})
+      this.setState({cvv_focus: false})
+
+    }
+
+     cardNumber_4_focused = () => {
+      this.setState({card_number_4_focus: true})
+     /* this.setState({card_number_input_block: "card_number_input_block"})*/
+
+      this.setState({card_number_2_focus: false})
+      this.setState({card_number_3_focus: false})
+      this.setState({card_number_1_focus: false})
+      this.setState({name_focus: false})
+      this.setState({cvv_focus: false})
+
+    }
+
+      cvvFocused = () => {
+      
+      this.setState({cvv_focus: true})
+
+      this.setState({card_number_2_focus: false})
+      this.setState({card_number_3_focus: false})
+      this.setState({card_number_1_focus: false})
+      this.setState({card_number_4_focus: false})
+      this.setState({name_focus: false})
+
+    }
+
+    handleChange = ({target: {value}}) => {
+
+    	const name = this.state.name
+
+
+    	console.log(value);
+    	this.setState ({name:value}
+    	    );
+    	
+
+    	if (!name.match(/^[a-zA-Z0-9\s]+$/) && name.length>=1   ) {
+    		this.setState({ cardHolderClassname: 'card_holder_not_valid' });
+    		this.setState({holderError: 'Используйте латинские буквы'});
+    	} else {
+    		this.setState({ cardHolderClassname: 'card_holder' })
+    		this.setState({holderError: ''});
+    	}
+    }
+
+    handleChangeCardNumber = ({target: {value}}) => {
+
+      const name = this.state.name
+      const cvv = this.state.cvv
+      const card_number_1 = this.state.card_number_1
+      const card_number_2 = this.state.card_number_2
+      const card_number_3 = this.state.card_number_3
+      const card_number_4 = this.state.card_number_4
+
+      switch (true){
+        case this.state.card_number_1_focus:
+        console.log(value);
+      this.setState ({card_number_1:value});
+
+        if(card_number_1.length>=3) {
+          this.setState ({card_number_input_block: "card_number_input_block"});
+          this.setState ({card_number_error: "" });
+
+        }
+        break;
+        case this.state.card_number_2_focus:
+        console.log(value);
+      this.setState ({card_number_2:value});
+
+      if(card_number_2.length>=3) {
+          this.setState ({card_number_input_block: "card_number_input_block"});
+          this.setState ({card_number_error: "" });
+
+        }
+        break;
+        case this.state.card_number_3_focus:
+        console.log(value);
+      this.setState ({card_number_3:value});
+
+      if(card_number_3.length>=3) {
+          this.setState ({card_number_input_block: "card_number_input_block"});
+          this.setState ({card_number_error: "" });
+
+        }
+        break;
+        case this.state.card_number_4_focus:
+        console.log(value);
+      this.setState ({card_number_4:value});
+
+      if(card_number_4.length>=3) {
+          this.setState ({card_number_input_block: "card_number_input_block"});
+          this.setState ({card_number_error: "" });
+
+        }
+        break;
+
+        case this.state.cvv_focus:
+        console.log(value);
+        this.setState ({cvv:value});
+
+        if(cvv.length>=1) {
+          this.setState ({cvv_className: "cvv"});
+          this.setState ({cvv_error: "" });
+        }
+
+          break;
+
+        case this.state.name_focus:
+
+        console.log(value);
+      this.setState ({name:value});
+      
+
+      if (!name.match(/^[a-zA-Z0-9\s]+$/) && name.length>=1   ) {
+        this.setState({ cardHolderClassname: 'card_holder_not_valid' });
+        this.setState({holderError: 'Используйте латинские буквы'});
+      } else {
+        this.setState({ cardHolderClassname: 'card_holder' })
+        this.setState({holderError: ''});
+      } ;
+      break
+
+
+
+      }
+
+    
+
+        }
+
+
+    
+
+      
+      
+      
+    
+
+    handleSubmit = e => {
+
+      const cvv = this.state.cvv
+      const name = this.state.name
+      
+
+      if (
+        this.state.card_number_1.length < 4 || 
+        this.state.card_number_2.length < 4 ||
+        this.state.card_number_3.length < 4 ||
+        this.state.card_number_4.length < 4   
+         ) {
+        e.preventDefault();
+        this.setState({card_number_input_block: "card_number_input_block_not_valid"});
+        this.setState({card_number_error: "В каждом поле должно быть 4 цифры"})
+
+      
+      } else if ( this.state.name.length<4) {
+        e.preventDefault();
+        this.setState({ cardHolderClassname: 'card_holder_not_valid' });
+        this.setState({holderError: 'Минимальная длина 4 символа'});
+     
+
+      } else if(!cvv) {
+         e.preventDefault();
+        this.setState({cvv_className: "cvv_not_valid"});
+        this.setState({cvv_error: "Поле не заполнено "});
+
+      } else if (!cvv.match(/^[0-9]{3,4}$/)) {
+        e.preventDefault();
+        this.setState({cvv_className: "cvv_not_valid"});
+        this.setState({cvv_error: "Только 3 цифры "});
+        
+      } else if (!name.match(/^[a-zA-Z0-9\s]+$/) && name.length>=1   ) {
+        e.preventDefault();
+        this.setState({ cardHolderClassname: 'card_holder_not_valid' });
+        this.setState({holderError: 'Используйте латинские буквы'});
+      } 
+    	
+
+    }
 	
 
 
 
 render() {
 
+/*	// цвет границы для поля для ввода имени
+            var nameColor = this.state.nameValid===true?"green":"red";
+            // цвет границы для поля для ввода возраста
+            var ageColor = this.state.ageValid===true?"green":"red";*/
+
+
+const {name} = this.state;
+const {cardHolderClassname} = this.state;
+const {holderError} = this.state;
+const {card_number_1} = this.state;
+const {card_number_2} = this.state;
+const {card_number_3} = this.state;
+const {card_number_4} = this.state;
+const {card_number_error} = this.state;
+const {cvv_error} = this.state;
+const {cvv} = this.state;
+
+
 
 
 	return (
 
 		
-
 		<div >
 
 	<div className = "menu">
@@ -29,7 +296,7 @@ render() {
 			<li>Выйти</li>
 		</ul>
 	</div>
-
+<form onSubmit={this.handleSubmit} >
 	<div className = "entry_block">
 	<div className = "info_block">
 	<p>Информация об оплате:</p>
@@ -51,7 +318,8 @@ render() {
 	<div className = "card_form_back"> 
 	<div className = "grey_stripe"></div>
 	<p>Код CVV2 / CVC2</p>
-	<input className = "cvv" maxLength = "3"/>
+	<input onFocus={this.cvvFocused} onChange={this.handleChangeCardNumber} value={cvv}  className = {this.state.cvv_className} maxLength = "3"/>
+  <div className="cvv_error"><p>{cvv_error}</p></div>
 	<div className = "info"></div>
 
 
@@ -59,15 +327,18 @@ render() {
 	</div>
 
 		<div className = "card_form"> 
-	<p> Номер карты </p>
+	<p> Номер карты </p> 
+  <div className="card_number_error"><p >{card_number_error}</p></div>
 
-	<div className = "card_number_input_block">
-		<input type="text" maxLength="4"/>
-		<input type="text" maxLength="4"/>
-		<input type="text" maxLength="4"/>
-		<input type="text" maxLength="4"/>
+	<div className = {this.state.card_number_input_block}>
+		<input onFocus={this.cardNumber_1_focused} onChange={this.handleChangeCardNumber} value={card_number_1} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_2_focused} onChange={this.handleChangeCardNumber} value={card_number_2} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_3_focused} onChange={this.handleChangeCardNumber} value={card_number_3} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_4_focused} onChange={this.handleChangeCardNumber} value={card_number_4} type="text" maxLength="4"/>
+    
 
 	</div>
+
 
 	<p>Cрок действия</p>
 
@@ -99,8 +370,11 @@ render() {
 <option value="11">2027</option>
 <option value="12">2028</option>
 </select>
+<div className="card_holder_wrapper">
+<input  onFocus={this.cardHolderFocused} onChange={this.handleChangeCardNumber} value = {name} id="nameholder" name="from" className= {cardHolderClassname} type="text" placeholder="Держатель карты" />
+<p>{holderError}</p>
 
-<input className= "card_holder" type="text" placeholder="Держатель карты" />
+</div>
 
 
 
@@ -113,7 +387,9 @@ render() {
 	</div>
 
 
-	<button  type= "submit"> <img src={btn} /> </button>
+	<button   type= "submit"  value="Проверить"> <img src={btn} /> </button>
+
+	</form>
 	<footer className = "footer">
 	<p>Исходя из астатической системы координат Булгакова, соединение стабильно. Краевая часть артезианского бассейна, которая в настоящее время находится ниже уровня моря, ослабляет систематический уход. Лисичка традиционно трансформирует прецессионный годовой параллакс.
 </p>
