@@ -129,7 +129,7 @@ class Page extends Component {
 
       switch (true){
         case this.state.card_number_1_focus:
-        console.log(value);
+        
       this.setState ({card_number_1:value});
 
         if(card_number_1.length>=3) {
@@ -139,7 +139,7 @@ class Page extends Component {
         }
         break;
         case this.state.card_number_2_focus:
-        console.log(value);
+        
       this.setState ({card_number_2:value});
 
       if(card_number_2.length>=3) {
@@ -149,7 +149,7 @@ class Page extends Component {
         }
         break;
         case this.state.card_number_3_focus:
-        console.log(value);
+        
       this.setState ({card_number_3:value});
 
       if(card_number_3.length>=3) {
@@ -159,7 +159,7 @@ class Page extends Component {
         }
         break;
         case this.state.card_number_4_focus:
-        console.log(value);
+        
       this.setState ({card_number_4:value});
 
       if(card_number_4.length>=3) {
@@ -170,7 +170,7 @@ class Page extends Component {
         break;
 
         case this.state.cvv_focus:
-        console.log(value);
+        
         this.setState ({cvv:value});
 
         if(cvv.length>=1) {
@@ -182,7 +182,7 @@ class Page extends Component {
 
         case this.state.name_focus:
 
-        console.log(value);
+        
       this.setState ({name:value});
       
 
@@ -199,9 +199,7 @@ class Page extends Component {
 
       }
 
-    
-
-        }
+       }
 
 
     
@@ -326,10 +324,10 @@ const {cvv} = this.state;
   <div className="card_number_error"><p >{card_number_error}</p></div>
 
 	<div className = {this.state.card_number_input_block}>
-		<input onFocus={this.cardNumber_1_focused} onChange={this.handleChange} value={card_number_1} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_2_focused} onChange={this.handleChange} value={card_number_2} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_3_focused} onChange={this.handleChange} value={card_number_3} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_4_focused} onChange={this.handleChange} value={card_number_4} type="text" maxLength="4"/>
+		<input ref="a" onFocus={this.cardNumber_1_focused} onChange={this.handleChange} value={card_number_1} type="text" maxLength="4"/>
+		<input ref="b" onFocus={this.cardNumber_2_focused} onChange={this.handleChange} value={card_number_2} type="text" maxLength="4"/>
+		<input id="c" onFocus={this.cardNumber_3_focused} onChange={this.handleChange} value={card_number_3} type="text" maxLength="4"/>
+		<input id="d" onFocus={this.cardNumber_4_focused} onChange={this.handleChange} value={card_number_4} type="text" maxLength="4"/>
     
 
 	</div>

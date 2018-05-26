@@ -1,37 +1,30 @@
+/*var a = document.getElementById("a"),
+    b = document.getElementById("b"),
+    c = document.getElementById("c");
+    d = document.getElementById("d");
 
-function showError(container, errorMessage) {
-      container.className = 'error';
-      var msgElem = document.createElement('span');
-      msgElem.className = "error-message";
-      msgElem.innerHTML = errorMessage;
-      container.appendChild(msgElem);
+a.onkeyup = function() {
+    if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+        b.focus();
     }
+}
 
-    function resetError(container) {
-      container.className = '';
-      if (container.lastChild.className == "error-message") {
-        container.removeChild(container.lastChild);
-      }
+b.onkeyup = function() {
+    if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+        c.focus();
+    } else if (this.value.length == 0) {
+        a.focus();
     }
+}
 
-    function validate(form) {
-      
-      var nameHolder = document.getElementById('nameholder').value;
-       var nameHolderr = /^[a-zA-Z0-9]+$/
-       
-       var nameHolderrr = nameHolderr.test(nameHolder);
-       
-    /*   alert("phone:"+nameHolderrr );*/
-      
-      var elems = form.elements;
-
-      resetError(elems.from.parentNode);
-      if (!elems.from.value) {
-        showError(elems.from.parentNode, ' Укажите от кого.');
-      } else if (!nameHolderrr) {
-        showError(elems.from.parentNode, ' Латиницей, сука!.');
-      
-      }
-
-     
+c.onkeyup = function() {
+    if (this.value.length == 0) {
+        b.focus();
     }
+}
+
+d.onkeyup = function() {
+    if (this.value.length == 0) {
+        b.focus();
+    }
+}*/
