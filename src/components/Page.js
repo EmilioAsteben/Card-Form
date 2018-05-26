@@ -9,18 +9,25 @@ class Page extends Component {
 
 
     state = {
+
+      /*Берут значение инпутов*/
     	name: '',
     	card_number_1:'',
     	card_number_2:'',
     	card_number_3:'',
     	card_number_4:'',
       cvv:'',
+
+      /*Состояния фокуса инпутов*/
+
       name_focus: false,
       card_number_1_focus: false,
       card_number_2_focus: false,
       card_number_3_focus: false,
       card_number_4_focus: false,
       cvv_focus: false,
+
+      /*классы*/
     	cardHolderClassname: "card_holder",
       card_number_input_block: "card_number_input_block",
       cvv_className: "cvv",
@@ -31,9 +38,10 @@ class Page extends Component {
 
     }
 
+    //Начало блока: фокус текстовых полей
     cardHolderFocused = () => {
       this.setState({name_focus: true})
-      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+     
 
       this.setState({card_number_1_focus: false})
       this.setState({card_number_2_focus: false})
@@ -45,7 +53,7 @@ class Page extends Component {
 
     cardNumber_1_focused = () => {
       this.setState({card_number_1_focus: true})
-      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+   
 
       this.setState({card_number_2_focus: false})
       this.setState({card_number_3_focus: false})
@@ -57,7 +65,7 @@ class Page extends Component {
 
      cardNumber_2_focused = () => {
       this.setState({card_number_2_focus: true})
-      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+     
 
       this.setState({card_number_1_focus: false})
       this.setState({card_number_3_focus: false})
@@ -69,7 +77,7 @@ class Page extends Component {
 
      cardNumber_3_focused = () => {
       this.setState({card_number_3_focus: true})
-      /*this.setState({card_number_input_block: "card_number_input_block"})*/
+      
 
       this.setState({card_number_2_focus: false})
       this.setState({card_number_1_focus: false})
@@ -81,7 +89,7 @@ class Page extends Component {
 
      cardNumber_4_focused = () => {
       this.setState({card_number_4_focus: true})
-     /* this.setState({card_number_input_block: "card_number_input_block"})*/
+    
 
       this.setState({card_number_2_focus: false})
       this.setState({card_number_3_focus: false})
@@ -103,26 +111,14 @@ class Page extends Component {
 
     }
 
+    //Конец блока: фокус текстовых полей
+
+
+
+
+    //handleChange берет value из инпутов и предварительно валидирует
+
     handleChange = ({target: {value}}) => {
-
-    	const name = this.state.name
-
-
-    	console.log(value);
-    	this.setState ({name:value}
-    	    );
-    	
-
-    	if (!name.match(/^[a-zA-Z0-9\s]+$/) && name.length>=1   ) {
-    		this.setState({ cardHolderClassname: 'card_holder_not_valid' });
-    		this.setState({holderError: 'Используйте латинские буквы'});
-    	} else {
-    		this.setState({ cardHolderClassname: 'card_holder' })
-    		this.setState({holderError: ''});
-    	}
-    }
-
-    handleChangeCardNumber = ({target: {value}}) => {
 
       const name = this.state.name
       const cvv = this.state.cvv
@@ -213,7 +209,7 @@ class Page extends Component {
       
       
       
-    
+    //submit и валидация
 
     handleSubmit = e => {
 
@@ -262,10 +258,7 @@ class Page extends Component {
 
 render() {
 
-/*	// цвет границы для поля для ввода имени
-            var nameColor = this.state.nameValid===true?"green":"red";
-            // цвет границы для поля для ввода возраста
-            var ageColor = this.state.ageValid===true?"green":"red";*/
+
 
 
 const {name} = this.state;
@@ -320,7 +313,7 @@ const {cvv} = this.state;
 	<div className = "card_form_back"> 
 	<div className = "grey_stripe"></div>
 	<p>Код CVV2 / CVC2</p>
-	<input onFocus={this.cvvFocused} onChange={this.handleChangeCardNumber} value={cvv}  className = {this.state.cvv_className} maxLength = "3"/>
+	<input onFocus={this.cvvFocused} onChange={this.handleChange} value={cvv}  className = {this.state.cvv_className} maxLength = "3"/>
   <div className="cvv_error"><p>{cvv_error}</p></div>
 	<div className = "info"></div>
 
@@ -333,10 +326,10 @@ const {cvv} = this.state;
   <div className="card_number_error"><p >{card_number_error}</p></div>
 
 	<div className = {this.state.card_number_input_block}>
-		<input onFocus={this.cardNumber_1_focused} onChange={this.handleChangeCardNumber} value={card_number_1} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_2_focused} onChange={this.handleChangeCardNumber} value={card_number_2} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_3_focused} onChange={this.handleChangeCardNumber} value={card_number_3} type="text" maxLength="4"/>
-		<input onFocus={this.cardNumber_4_focused} onChange={this.handleChangeCardNumber} value={card_number_4} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_1_focused} onChange={this.handleChange} value={card_number_1} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_2_focused} onChange={this.handleChange} value={card_number_2} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_3_focused} onChange={this.handleChange} value={card_number_3} type="text" maxLength="4"/>
+		<input onFocus={this.cardNumber_4_focused} onChange={this.handleChange} value={card_number_4} type="text" maxLength="4"/>
     
 
 	</div>
@@ -373,7 +366,9 @@ const {cvv} = this.state;
 <option value="12">2028</option>
 </select>
 <div className="card_holder_wrapper">
-<input  onFocus={this.cardHolderFocused} onChange={this.handleChangeCardNumber} value = {name} id="nameholder" name="from" className= {cardHolderClassname} type="text" placeholder="Держатель карты" />
+
+<input  onFocus={this.cardHolderFocused} onChange={this.handleChange} value = {name} id="nameholder" name="from" className= {cardHolderClassname} type="text" placeholder="Держатель карты" />
+
 <p>{holderError}</p>
 
 </div>
@@ -389,7 +384,7 @@ const {cvv} = this.state;
 	</div>
 
 
-	<button   type= "submit"  value="Проверить"> <img src={btn} /> </button>
+	<button   type= "submit"  value="Проверить"> <img src={btn} alt="Отправить" /> </button>
 
 	</form>
 	<footer className = "footer">
@@ -417,7 +412,8 @@ const {cvv} = this.state;
 
 		);
 
-}
+  }
+
 }
 
 
