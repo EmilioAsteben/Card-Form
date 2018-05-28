@@ -26,6 +26,7 @@ class Page extends Component {
       card_number_3_focus: false,
       card_number_4_focus: false,
       cvv_focus: false,
+      card_number_4_touched: false,
 
       /*классы*/
     	cardHolderClassname: "card_holder",
@@ -202,7 +203,45 @@ class Page extends Component {
        }
 
 
+
+       // Переключает поля ввода номера карты при заполнении
+
+    switchInput = () => {
+
+
+      const card_number_1 = this.state.card_number_1
+      const card_number_2 = this.state.card_number_2
+      const card_number_3 = this.state.card_number_3
+      const card_number_4 = this.state.card_number_4
+
+      const card_number_4_focus = this.state.card_number_4_focus
+
+    if (card_number_1.length === 4 && this.state.card_number_1_focus) {
+
+        this.refs.b.focus();
+
+    } else if (card_number_2.length === 4 && this.state.card_number_2_focus) {
+      this.refs.c.focus();
+
+    } else if (card_number_3.length === 4 && this.state.card_number_3_focus) {
+
+      this.refs.d.focus();
     
+  }   else if (this.state.card_number_4_focus && card_number_4.length ===0) {
+    this.refs.c.focus();
+
+    
+  }   else if (this.state.card_number_3_focus && card_number_3.length ===0) {
+    this.refs.b.focus();
+
+  }   else if (this.state.card_number_2_focus && card_number_2.length ===0) {
+    this.refs.a.focus();
+
+    }  
+}
+
+
+
 
       
       
@@ -324,10 +363,10 @@ const {cvv} = this.state;
   <div className="card_number_error"><p >{card_number_error}</p></div>
 
 	<div className = {this.state.card_number_input_block}>
-		<input ref="a" onFocus={this.cardNumber_1_focused} onChange={this.handleChange} value={card_number_1} type="text" maxLength="4"/>
-		<input ref="b" onFocus={this.cardNumber_2_focused} onChange={this.handleChange} value={card_number_2} type="text" maxLength="4"/>
-		<input id="c" onFocus={this.cardNumber_3_focused} onChange={this.handleChange} value={card_number_3} type="text" maxLength="4"/>
-		<input id="d" onFocus={this.cardNumber_4_focused} onChange={this.handleChange} value={card_number_4} type="text" maxLength="4"/>
+		<input onKeyUp={() => this.switchInput()} ref="a" onFocus={this.cardNumber_1_focused} onChange={this.handleChange} value={card_number_1} type="text" maxLength="4"/>
+		<input onKeyUp={() => this.switchInput()} ref="b" onFocus={this.cardNumber_2_focused} onChange={this.handleChange} value={card_number_2} type="text" maxLength="4"/>
+		<input onKeyUp={() => this.switchInput()} ref="c" onFocus={this.cardNumber_3_focused} onChange={this.handleChange} value={card_number_3} type="text" maxLength="4"/>
+		<input onKeyUp={() => this.switchInput()} ref="d" onFocus={this.cardNumber_4_focused} onChange={this.handleChange} value={card_number_4} type="text" maxLength="4"/>
     
 
 	</div>
